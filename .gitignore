@@ -25,3 +25,9 @@ hs_err_pid*
 # IntellijIDEA files and folder
 **/*.iml
 **/*.idea
+
+/.gradle/
+/.idea/
+/build/
+/out/
+*.iml
