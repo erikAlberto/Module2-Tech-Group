@@ -30,19 +30,6 @@ public class LinkedListUtils {
 				}
 			}
 		}
-
-		/*if (list != null) {
-			int index = 0;
-			while (index < list.size()) {
-				if (list.get(index) < value) {
-					index++;
-				}
-				else {
-					break;
-				}
-			}
-			list.add(index, value);
-		}*/
 	}
 	public static void removeMaximumValues(LinkedList<String> list, int N) {
 
@@ -59,45 +46,8 @@ public class LinkedListUtils {
         			list.remove();
 					i++;
 				}
-
-				/*for (int j = 0; j < list.size(); i++){
-					if (list.get(j).compareTo(list.get(j+1)) == 0){
-						list.remove();
-					}
-				}*/
         	}
-
-            /*for (int i = 0; i <= list.size()-1; i++){
-                if (list.get(i).compareTo(list.get(i+1)) > 0 || list.get(i+1).compareTo(list.get(i)) > 0) {
-					if (list.get(i).compareTo(list.get(i+1)) >= N || list.get(i+1).compareTo(list.get(i)) > N) {
-						list.remove();
-					}
-                }
-            }*/
         }
-
-		/*if (list != null && !list.isEmpty()) {
-			if (list.size() <= N) {
-				list.removeAll(list);
-				return;
-			}
-			for (int i = 0; i < N; i++) {
-				LinkedList<String> sortedList = new LinkedList<>(list);
-				Collections.sort(sortedList, Collections.reverseOrder());
-				list.removeAll(Arrays.asList(sortedList.get(0)));
-			}
-		}*/
-
-		/*if (list != null && !list.isEmpty() && N > 0) {
-			int counter = 0;
-			while(counter < N && counter < list.size()) {
-				String top = Collections.max(list);
-				while (list.contains(top)){
-					list.remove(top);
-				}
-				counter++;
-			}
-		}*/
 	}
 	
 	public static boolean containsSubsequence(LinkedList<Integer> one, LinkedList<Integer> two) {
