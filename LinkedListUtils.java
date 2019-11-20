@@ -32,7 +32,19 @@ public class LinkedListUtils {
 	public static void removeMaximumValues(LinkedList<String> list, int N) {
 
 		/* IMPLEMENT THIS METHOD! */
-
+		if (list != null && N > 0 ){
+			if (list.size() == 1){
+				list.remove();
+			}
+			if (list.size() > N){
+				int i = 0;
+				Collections.sort(list, Collections.reverseOrder());
+				while (i < N ) {
+					list.remove();
+					i++;
+				}
+			}
+		}
 	}
 	
 	public static boolean containsSubsequence(LinkedList<Integer> one, LinkedList<Integer> two) {
