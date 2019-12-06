@@ -44,7 +44,7 @@ public class MyLinkedList<T> implements List<T> {
 
     @Override
     public int size() {
-        return size;
+        return this.size;
     }
 
     @Override
@@ -81,7 +81,7 @@ public class MyLinkedList<T> implements List<T> {
 
     @Override
     public boolean add(T t) {
-        Node node = new Node<>(t);
+        Node node = new Node(t);
         if (first == null){
             first = node;
             last = node;
@@ -89,13 +89,23 @@ public class MyLinkedList<T> implements List<T> {
         }
         else {
             this.last.setNext(node);
+            last = node;
             size++;
         }
-        return true;
+        return false;
     }
 
     @Override
     public boolean remove(Object o) {
+        Node current = first;
+        while (current != null) {
+            if (current.getValue().equals(o)) {
+                current.getNext().getNext();
+                return true;
+            }
+
+            current = current.getNext();
+        }
         return false;
     }
 
