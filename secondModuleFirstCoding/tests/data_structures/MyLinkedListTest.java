@@ -19,7 +19,17 @@ public class MyLinkedListTest {
     }
 
     @Test
-    public void testGetMethod() {
+    public void testToString() {
+        MyLinkedList<String> myLinkedList = new MyLinkedList<>();
+
+        myLinkedList.add("world");
+        myLinkedList.add("hello");
+        myLinkedList.add("gat");
+        assertEquals("[world, hello, gat]", myLinkedList.toString());
+    }
+
+    @Test
+    public void testGetMethodShouldReturnTheValueOfTheNodeOnTheSpecifiedIndex() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
         myLinkedList.add("sunday");
         myLinkedList.add("saturday");
@@ -43,14 +53,5 @@ public class MyLinkedListTest {
         myLinkedList.add("hey");
         myLinkedList.add("hello");
         assertTrue(myLinkedList.contains("hello"));
-    }
-
-    @Test
-    public void testRemove() {
-        MyLinkedList<String> myLinkedList = new MyLinkedList<>();
-        myLinkedList.add("hi");
-        myLinkedList.add("hello");
-        myLinkedList.add("ello");
-        assertTrue(myLinkedList.remove("hello"));
     }
 }

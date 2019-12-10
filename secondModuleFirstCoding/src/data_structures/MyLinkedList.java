@@ -97,15 +97,6 @@ public class MyLinkedList<T> implements List<T> {
 
     @Override
     public boolean remove(Object o) {
-        Node current = first;
-        while (current != null) {
-            if (current.getValue().equals(o)) {
-                current.getNext().getNext();
-                return true;
-            }
-
-            current = current.getNext();
-        }
         return false;
     }
 
@@ -141,6 +132,13 @@ public class MyLinkedList<T> implements List<T> {
 
     @Override
     public T get(int index) {
+        Node<T> current = first;
+        for (int i = 0; i < this.size; i++) {
+            if (i == index){
+                return  current.getValue();
+            }
+            current = current.getNext();
+        }
         return null;
     }
 
@@ -182,5 +180,21 @@ public class MyLinkedList<T> implements List<T> {
     @Override
     public List<T> subList(int fromIndex, int toIndex) {
         return null;
+    }
+
+    @Override
+    public String toString() {
+        String value = "[";
+        Node nodeAux = first;
+        while(nodeAux != null){
+            if (nodeAux == last){
+                value = value + nodeAux.getValue().toString();
+            }
+            else {
+                value = value + nodeAux.getValue().toString() + ", ";
+            }
+            nodeAux = nodeAux.getNext();
+        }
+        return value + "]";
     }
 }
