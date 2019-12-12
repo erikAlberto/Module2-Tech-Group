@@ -97,6 +97,30 @@ public class MyLinkedList<T> implements List<T> {
 
     @Override
     public boolean remove(Object o) {
+        Node current = first;
+        Node temp = first;
+        while (current != null) {
+            temp = current.getNext();
+            if (current.getValue().equals(o)) {
+                current.setNext(temp.getNext());
+                //current = current.getNext();
+
+                //current = current.getNext();
+
+                //current = temp;
+                //current.setNext(temp.getNext());
+                /*temp = current.getNext();
+                current = null;*/
+
+                /*temp = current.getNext();
+                current = null;*/
+                size--;
+                //current.getNext().getNext();
+                return true;
+            }
+
+            current = current.getNext();
+        }
         return false;
     }
 
@@ -127,10 +151,19 @@ public class MyLinkedList<T> implements List<T> {
 
     @Override
     public void clear() {
-
+        Node nodeAux = first;
+        for(int i =0; i< size;i++) {
+            Node aux = nodeAux.getNext();
+            nodeAux.setNext(null);
+            nodeAux.setValue(null);
+            nodeAux = aux;
+        }
+        size= 0;
+        last=null;
+        first=null;
     }
 
-    @Override
+    /*@Override
     public T get(int index) {
         Node<T> current = first;
         for (int i = 0; i < this.size; i++) {
@@ -140,6 +173,20 @@ public class MyLinkedList<T> implements List<T> {
             current = current.getNext();
         }
         return null;
+    }*/
+
+    @Override
+    public T get(int index) {
+        if (index >= this.size) {
+            throw new IndexOutOfBoundsException();
+        }
+        Node<T> auxNode = first;
+
+        for (int i = 0; i < index; i++) {
+            auxNode = auxNode.getNext();
+        }
+
+        return auxNode.getValue();
     }
 
     @Override
