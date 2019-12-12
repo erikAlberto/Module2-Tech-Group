@@ -99,27 +99,15 @@ public class MyLinkedList<T> implements List<T> {
     public boolean remove(Object o) {
         Node current = first;
         Node temp = first;
-        while (current != null) {
-            temp = current.getNext();
-            if (current.getValue().equals(o)) {
-                current.setNext(temp.getNext());
-                //current = current.getNext();
-
-                //current = current.getNext();
-
-                //current = temp;
-                //current.setNext(temp.getNext());
-                /*temp = current.getNext();
-                current = null;*/
-
-                /*temp = current.getNext();
-                current = null;*/
+        while (temp != null) {
+            if (temp.getValue().equals(o)) {
+                //current.setNext(current.getNext());
+                first = current.getNext();
+                last = first;
                 size--;
-                //current.getNext().getNext();
                 return true;
             }
-
-            current = current.getNext();
+            temp = temp.getNext();
         }
         return false;
     }
